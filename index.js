@@ -4,8 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const app = express();
-const cors = require("cors")
-
+const cors = require("cors");
 
 app.get("/", (req, res) => {
   res.send("Hello,I am Damilare!");
@@ -41,7 +40,7 @@ app.post("/api/users/register", async (req, res) => {
   const { first_name, last_name, email, password } = req.body;
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
-  console.log(req.body)
+  console.log(req.body);
   const user = new User({
     first_name,
     last_name,
